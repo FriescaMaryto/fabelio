@@ -83,23 +83,17 @@ $koneksi= koneksi_db();
     <?php
         if(isset($_POST['main_url'])){
             $query = $_POST['main_url'];
-			
-        //}
-
-        // if(strlen($query) >= $min_length){ // if query length is more or equal minimum length then
-        //     $query = htmlspecialchars($query);
-        //     $query = mysql_real_escape_string($query);
-			crawling();
+			      crawling();
 
             $raw_results = mysql_query("SELECT * FROM crawl
                             WHERE (`internal_link` LIKE '%".$query."%')") or die(mysql_error());
 
                 if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
                      while($results = mysql_fetch_array($raw_results)){
-                         echo "<script language='javascript'>alert('ada');</script>";
+                         echo "<script language='javascript'>alert('Produk Sudah Ada!');</script>";
                     }
                  }else {
-                     echo "<script language='javascript'>alert('tidak ada');</script>";
+                     echo "<script language='javascript'>alert('Produk Tidak Ada!');</script>";
                  }
 
             }

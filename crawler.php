@@ -1,8 +1,9 @@
 <?php
  include_once('config.php');
- $koneksi= koneksi_db();
+
 
  function crawling(){
+   $koneksi= koneksi_db();
 	 $main_url="https://fabelio.com";
 	 $str = file_get_contents($main_url);
 

@@ -74,8 +74,27 @@ include("config.php");
                   <?php echo "Rp " .number_format($data['harga']); ?>
                 </h2>
                 <p><?php echo $data['deskripsi']; ?></p>
+                <table class="table">
+                                      <thead class="bg-warning">
+                                          <tr>
+                                              <th scope="col">Price</th>
+                                              <th scope="col">Time</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td> <?php echo "Rp " .number_format($data['harga']); ?></td>
+                                              <td><?php echo $data['date_added']; ?></td>
+                                          </tr>
+                                      </tbody>
+                                      <?php
+                                          }
+                                      ?>
+                </table>
               </div>
             </div>
+            <!--tes-->
+
           </div>
         </div>
       </div>
@@ -129,10 +148,6 @@ include("config.php");
          </div>
         </div>
     </section>
-
-    <?php
-        }
-     ?>
 
     <footer class="footer text-faded text-center py-5">
       <div class="container">
