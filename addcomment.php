@@ -6,18 +6,34 @@ if (isset($_POST['submit'])) {
       $id=$_POST['id_p'];
 			$title=$_POST['title'];
 			$comment=$_POST['comment'];
-
-			$save=mysql_query("INSERT INTO comment (title, comment, date_added, score, id_p) VALUES ('$title', '$comment', curdate(), 0, '$id')");
+			
+			$query="INSERT INTO comment (title, comment, date_added, score, id_p) VALUES ('$title', '$comment', curdate(), 0, '$id')" or die(mysql_error());
+			$action = mysql_query($query, $koneksi);
 
 			header("Location:store.php?id_p=$id");
 			exit();
 	}
+	
+if($_GET['upvt']){
+	scoreU($_GET['upvt'],$_GET['id']);
+}
 
-function score(){
-    $id=$_POST['id'];
+if($_GET['dnvt']){
+	scoreD($_GET['dnvt'],$_GET['id']);
+}
 
-	$save=mysql_query("update comment set score=1 WHERE id='$id'");
+function scoreU($idu,$id){
+	$query="update comment set score = score + 1 WHERE id='$idu'" or die(mysql_error());
+	$action = mysql_query($query, $koneksi);
+	header("Location:store.php?id_p=$id");
+	exit();
+}
 
+function scoreD($idd,$id){
+	$query="update comment set score = score + 1 WHERE id='$idu'" or die(mysql_error());
+	$action = mysql_query($query, $koneksi);
+	header("Location:store.php?id_p=$id");
+	exit();
 }
 
 
