@@ -131,8 +131,8 @@ include("config.php");
 
                <div class="card">
                   <h5 class="card-header">
-                      <a href="addcomment.php?upvt=<?php echo $v_display['id']; ?>&id=<?php echo $v_display['id_p']; ?>" name="addscore" class="btn btn-primary">upvote</a>
-                      <a href="addcomment.php?dnvt=<?php echo $v_display['id']; ?>&id=<?php echo $v_display['id_p']; ?>" name="addscore" class="btn btn-primary">downvote</a>
+                      <a href="addcomment.php?type=1&id=<?php echo $v_display['id']; ?>&idp=<?php echo $v_display['id_p']; ?>" name="addscore" class="btn btn-primary">upvote</a>
+                      <a href="addcomment.php?type=2&id=<?php echo $v_display['id']; ?>&idp=<?php echo $v_display['id_p']; ?>" name="addscore" class="btn btn-primary">downvote</a>
 					  <a><?php echo $v_display['score']; ?></a>
                   </h5>
                   <div class="card-body">

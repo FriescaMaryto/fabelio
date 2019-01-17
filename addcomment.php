@@ -14,12 +14,13 @@ if (isset($_POST['submit'])) {
 			exit();
 	}
 	
-if($_GET['upvt']){
-	scoreU($_GET['upvt'],$_GET['id']);
-}
-
-if($_GET['dnvt']){
-	scoreD($_GET['dnvt'],$_GET['id']);
+if($_GET['type']){
+    if($_GET['type'] == 1){
+        scoreU($_GET['id'],$_GET['idp']);
+    }
+    if($_GET['type'] == 2){
+        scoreD($_GET['id'],$_GET['idp']);
+    }
 }
 
 function scoreU($idu,$id){
